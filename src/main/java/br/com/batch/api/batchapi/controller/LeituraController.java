@@ -6,6 +6,9 @@ import br.com.batch.api.batchapi.repository.LeituraRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,5 +36,8 @@ public class LeituraController {
     }
 
     @GetMapping
-    public ResponseEntity leituras<
+    public ResponseEntity <Page<LeituraDto>> leituras(@PageableDefault(size = 30, sort={"data"})Pageable paginacao){
+        var page = repository.findAll(paginacao).map(LeituraDto::new);
+        return ResponseEntity.ok(page);
+    }
 }
