@@ -2,6 +2,7 @@ package br.com.batch.api.batchapi.domain;
 
 import br.com.batch.api.batchapi.dto.LeituraDto;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,12 +26,20 @@ public class Leitura {
     private LocalDate data;
     private String responsavel;
 
-    public Leitura(LeituraDto dto){
-        System.out.println("Valor do DTO "+dto.toString());
-        this.IDLogger=dto.idLogger();
-        this.valor=dto.valor();
-        this.data=dto.data();
-        this.responsavel=dto.responsavel();
+    public Leitura(LeituraDto dto) {
+        System.out.println("Valor do DTO " + dto.toString());
+        this.IDLogger = dto.idLogger();
+        this.valor = dto.valor();
+        this.data = dto.data();
+        this.responsavel = dto.responsavel();
     }
+
+    public void setValor(float novo){
+        this.valor=novo;
+    }
+    public void setResponsavel(String r){
+        this.responsavel=r;
+    }
+
 
 }
