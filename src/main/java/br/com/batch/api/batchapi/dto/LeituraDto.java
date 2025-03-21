@@ -1,7 +1,6 @@
 package br.com.batch.api.batchapi.dto;
 
 import br.com.batch.api.batchapi.domain.Leitura;
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

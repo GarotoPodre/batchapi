@@ -12,6 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.List;
 
 
 @RestController
@@ -25,29 +28,33 @@ public class LeituraController {
     private LeituraRepository repository;
 
     /**
-     * Usado para inserção de leituras manuais
+     * Usado para inserção de leituras manuais, se tudo der certo, retorno código 201
      * @param leitura
      * @return
      */
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(@RequestBody @Valid LeituraDto leitura){
+    public ResponseEntity cadastrar(@RequestBody @Valid LeituraDto leitura, UriComponentsBuilder uriBuilder){
 
         LeituraDto dto = efetivaLeitura.efetiva(leitura);
-
-        return ResponseEntity.ok(leitura);
+        System.out.println("dto :"+dto.toString());
+        var uri=uriBuilder.path("/leituras/{id}").buildAndExpand(dto.id()).toUri();
+        return ResponseEntity.created(uri).body(dto);
 
     }
 
-    /**
-     * Retorna a leitura mensal (30 dias)
-     * @param paginacao
-     * @return
-     */
+
+    @GetMapping("/{id}")
+    public ResponseEntity leitura(@PathVariable Long id ){
+        var l=repository.getReferenceById(id);
+        return ResponseEntity.ok(new LeituraDto(l));
+    }
+
     @GetMapping
-    public ResponseEntity <Page<LeituraDto>> leituras(@PageableDefault(size = 30, sort={"data"})Pageable paginacao){
-        var page = repository.findAll(paginacao).map(LeituraDto::new);
-        return ResponseEntity.ok(page);
+    public ResponseEntity <List<LeituraDto>>listagem(){
+        List<Leitura> leituras=repository.findAll();
+        List<LeituraDto> leiturasDto=leituras.stream().map(LeituraDto::new).toList();
+        return ResponseEntity.ok(leiturasDto);
     }
 
     @PutMapping

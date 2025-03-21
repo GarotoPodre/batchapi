@@ -27,9 +27,8 @@ public class EfetivaLeitura {
         //Validando regras de negócio
         validadores.forEach(validador -> validador.valida(leitura));
         var l = new Leitura(leitura);
-        repository.save(l);
-
-       return leitura;
+        LeituraDto novo= new LeituraDto(repository.save(l));
+       return novo;
 
     }
 }
