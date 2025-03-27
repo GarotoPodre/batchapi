@@ -3,6 +3,7 @@ package br.com.batch.api.batchapi.controller;
 import br.com.batch.api.batchapi.domain.Usuario;
 import br.com.batch.api.batchapi.dto.UsuarioDtoAdd;
 import br.com.batch.api.batchapi.repository.UsuarioRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/usuarios")
+@SecurityRequirement(name = "bearer-key")
 public class UsuarioController {
 
     @Autowired

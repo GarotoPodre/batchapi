@@ -8,11 +8,11 @@ Ela permite que os dados sejam lidos, inseridos e editados após autenticação,
 - Permite inserção, leitura e edição de leituras
 - Permite inserção e edição de usuarios
 - Permite inserção e edição de dispositivos
-- Dispopnibiliza documentação online
+- Disponibiliza documentação online
 <h1>🚧Status do projeto</h1> 
 <ul>
 <li>endpoints para leitura[x]</li> 
-<li>endpoints para usuaros[x]</li> 
+<li>endpoints para usuarios[x]</li> 
 <li>endpoints dispositivo[ ]</li> 
 <li>documentação online[ ]</li> 
 </ul>

@@ -4,6 +4,7 @@ import br.com.batch.api.batchapi.domain.Leitura;
 import br.com.batch.api.batchapi.dto.LeituraDto;
 import br.com.batch.api.batchapi.repository.LeituraRepository;
 import br.com.batch.api.batchapi.validacoes.EfetivaLeitura;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/leituras")
+@SecurityRequirement(name = "bearer-key")
 public class LeituraController {
 
 
