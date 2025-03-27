@@ -5,16 +5,18 @@ Após a criação da aplicação 'bacth', que cria um pipeline e grava os dados 
 Ela permite que os dados sejam lidos, inseridos e editados após autenticação, além de diponibilizar informações para consumo da API através do Springdoc-openapi.
 <br/>
 <h1>🧰Funcionalidades</h1>
-- Permite inserção, leitura e edição de leituras
-- Permite inserção e edição de usuarios
-- Permite inserção e edição de dispositivos
-- Disponibiliza documentação online
+<ul>
+  <li>Permite inserção, leitura e edição de leituras</li>
+  <li>Permite inserção e edição de usuarios</li>
+  <li>Permite inserção e edição de dispositivos</li>
+  <li>Disponibiliza documentação online</li>
+</ul>
 <h1>🚧Status do projeto</h1> 
 <ul>
 <li>endpoints para leitura[x]</li> 
 <li>endpoints para usuarios[x]</li> 
 <li>endpoints dispositivo[ ]</li> 
-<li>documentação online[ ]</li> 
+<li>documentação online[x]</li> 
 </ul>
 
 <h1>👨‍💻Tecnologias</h1>
